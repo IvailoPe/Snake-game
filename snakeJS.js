@@ -15,7 +15,7 @@ let infoForApple = [2, "apple.jpg", true]
 
 let indexOfHeadOfSnake = [4, 9, "red"]
 
-let snakeTale = [];
+let snakeTail = [];
 
 let grass = "#66FF99"
 
@@ -92,7 +92,7 @@ document.addEventListener("keypress", (e) => {
 
     if (isGameStarted) {
         let gameMechanics = setInterval(() => {
-            snakeTale.forEach((x) => {
+            snakeTail.forEach((x) => {
                 if (x["1"][0] === indexOfHeadOfSnake[0] && x["1"][1] === indexOfHeadOfSnake[1]) {
                     clearInterval(gameMechanics)
                     console.log(`You lost`);
@@ -102,17 +102,17 @@ document.addEventListener("keypress", (e) => {
             let buff = [...indexOfHeadOfSnake]
             if (w) {
                 row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 0
-                if (snakeTale.length === 0) {
+                if (snakeTail.length === 0) {
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = grass
                 }
                 if (!row[indexOfHeadOfSnake[0] - 1]) {
                     indexOfHeadOfSnake[0] = 9
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true;
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
                     }
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
@@ -120,11 +120,11 @@ document.addEventListener("keypress", (e) => {
                 } else {
                     if (row[indexOfHeadOfSnake[0] - 1].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
                         row[indexOfHeadOfSnake[0] - 1].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                     }
                     row[--indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = "red"
@@ -132,17 +132,17 @@ document.addEventListener("keypress", (e) => {
             }
             else if (s) {
                 row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 0
-                if (snakeTale.length === 0) {
+                if (snakeTail.length === 0) {
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = grass
                 }
                 if (!row[indexOfHeadOfSnake[0] + 1]) {
                     indexOfHeadOfSnake[0] = 0
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true;
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
                     }
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
@@ -150,11 +150,11 @@ document.addEventListener("keypress", (e) => {
                 } else {
                     if (row[indexOfHeadOfSnake[0] + 1].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
                         row[indexOfHeadOfSnake[0] + 1].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                     }
                     row[++indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = "red"
@@ -162,17 +162,17 @@ document.addEventListener("keypress", (e) => {
             }
             else if (d) {
                 row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 0
-                if (snakeTale.length === 0) {
+                if (snakeTail.length === 0) {
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = grass
                 }
                 if (!row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] + 1]) {
                     indexOfHeadOfSnake[1] = 0
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true;
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
                     }
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
@@ -180,11 +180,11 @@ document.addEventListener("keypress", (e) => {
                 } else {
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] + 1].innerText === "2") {
                         infoForApple[2] = true
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] + 1].style.backgroundImage = ""
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                     }
                     row[indexOfHeadOfSnake[0]].cells[++indexOfHeadOfSnake[1]].innerText = 1
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = "red"
@@ -192,17 +192,17 @@ document.addEventListener("keypress", (e) => {
             }
             else if (a) {
                 row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 0
-                if (snakeTale.length === 0) {
+                if (snakeTail.length === 0) {
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundColor = grass
                 }
                 if (!row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] - 1]) {
                     indexOfHeadOfSnake[1] = 19
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText === "2") {
                         infoForApple[2] = true;
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].style.backgroundImage = ""
                     }
                     row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1]].innerText = 1
@@ -210,10 +210,10 @@ document.addEventListener("keypress", (e) => {
                 } else {
                     if (row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] - 1].innerText === "2") {
                         infoForApple[2] = true;
-                        snakeTale.push({
+                        snakeTail.push({
                             "1": [buff[0], buff[1]]
                         })
-                        console.log(snakeTale);
+                        console.log(snakeTail);
                         row[indexOfHeadOfSnake[0]].cells[indexOfHeadOfSnake[1] - 1].style.backgroundImage = ""
                     }
                     row[indexOfHeadOfSnake[0]].cells[--indexOfHeadOfSnake[1]].innerText = 1
@@ -260,30 +260,30 @@ function followHead(cordinatesOfHead) {
     console.log(cordinatesOfHead);
     let firstEle = true
     let cordinatesOfLastElement
-    if (snakeTale.length > 0) {
+    if (snakeTail.length > 0) {
         let row = document.getElementsByTagName("tr")
-        for (let i = 0; i < snakeTale.length; i++) {
+        for (let i = 0; i < snakeTail.length; i++) {
             if (firstEle) {
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].innerText = 0
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].style.backgroundColor = grass
-                cordinatesOfLastElement = [snakeTale[i]["1"][0], snakeTale[i]["1"][1]]
-                snakeTale[i]["1"][0] = cordinatesOfHead[0]
-                snakeTale[i]["1"][1] = cordinatesOfHead[1]
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].innerText = 1
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].style.backgroundColor = "green"
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].innerText = 0
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].style.backgroundColor = grass
+                cordinatesOfLastElement = [snakeTail[i]["1"][0], snakeTail[i]["1"][1]]
+                snakeTail[i]["1"][0] = cordinatesOfHead[0]
+                snakeTail[i]["1"][1] = cordinatesOfHead[1]
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].innerText = 1
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].style.backgroundColor = "green"
                 firstEle = false
             }
             else {
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].style.backgroundColor = grass
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].innerText = 0
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].style.backgroundColor = grass
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].innerText = 0
                 
-                let buff1 = snakeTale[i]["1"][0]
-                let buff2 = snakeTale[i]["1"][1]
-                snakeTale[i]["1"][0] = cordinatesOfLastElement[0]
-                snakeTale[i]["1"][1] = cordinatesOfLastElement[1]
+                let buff1 = snakeTail[i]["1"][0]
+                let buff2 = snakeTail[i]["1"][1]
+                snakeTail[i]["1"][0] = cordinatesOfLastElement[0]
+                snakeTail[i]["1"][1] = cordinatesOfLastElement[1]
                 cordinatesOfLastElement = [buff1, buff2]
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].innerText = 1
-                row[snakeTale[i]["1"][0]].cells[snakeTale[i]["1"][1]].style.backgroundColor = "green"
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].innerText = 1
+                row[snakeTail[i]["1"][0]].cells[snakeTail[i]["1"][1]].style.backgroundColor = "green"
             }
         }
     }
